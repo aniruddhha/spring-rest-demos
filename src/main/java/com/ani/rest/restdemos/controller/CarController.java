@@ -2,6 +2,8 @@ package com.ani.rest.restdemos.controller;
 
 import com.ani.rest.restdemos.domain.Car;
 import com.ani.rest.restdemos.response.AppRes;
+import com.ani.rest.restdemos.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,6 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/car")
 public class CarController {
+
+    @Autowired
+    private CarService carService;
 
     @PostMapping // saving new car
     public AppRes save(@RequestBody Car car) {

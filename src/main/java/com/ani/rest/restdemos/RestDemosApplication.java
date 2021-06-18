@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+
+// write test case for every single class ( every single line)
 @SpringBootApplication
 public class RestDemosApplication {
 
