@@ -3,6 +3,7 @@ package com.ani.rest.restdemos.advice;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -32,7 +33,7 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         List<String> errors = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(x -> x.getDefaultMessage())
+                .map(x -> ((FieldError) x).getField() +" : " + x.getDefaultMessage())
                 .collect(Collectors.toList());
 
         body.put("errors", errors);
